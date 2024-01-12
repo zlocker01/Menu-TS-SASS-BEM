@@ -1,0 +1,66 @@
+@use '_reset';
+@import '_mixins';
+
+.header {
+    width: 100%;
+    background-color: black;
+    padding: 1em;
+
+    @include flex (row, wrap, center, space-between);
+
+    &__h1 {
+        color: aliceblue;
+    }
+
+    &__a {}
+
+    &__button {
+        display: none;
+        cursor: pointer;
+        
+        @include media () {
+            display: block;
+        };
+    }
+
+    &__svg {
+        color: aliceblue;
+        width: 1.875rem;
+        height: 1.875rem;
+    }
+
+    &__nav {
+        color: aliceblue;
+        height: 0vh;
+        opacity: 0;
+        
+        @include media () {
+            width: 100%;
+            height: 50vh;
+            display: none;
+            opacity: 1;
+            overflow: hidden;
+            transition: all .5s ease;
+            
+            &--active {
+                @include flex (column, wrap, center, center);
+            }
+        }
+    }
+
+    &__ul {
+        @include flex (row, wrap, center, flex-end);
+
+        @include media() {
+            flex-direction: column;
+        }
+    }
+
+    &__li {
+        margin: 0 .5em;
+
+        @include media () {
+            margin: .625rem 0;
+        }
+    }
+}
